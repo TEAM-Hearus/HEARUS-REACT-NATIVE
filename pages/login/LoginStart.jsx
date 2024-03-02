@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
-
-function onClickLoginButton() {
-
-}
+import { styles } from './LoginStartStyle'
 
 export default function LoginStart() {
+    const [inputID, setInputID] = useState("");
+    const [inputPW, setInputPW] = useState("");
 
     return (
         <View style={styles.container}>
@@ -15,40 +14,24 @@ export default function LoginStart() {
             <TextInput
                 placeholder='이메일'
                 style={styles.loginInput}
-            ></TextInput>
+                onChangeText={(text) => setInputID(text)}
+                value={inputID}
+            />
             <TextInput
                 placeholder='비밀번호'
                 style={styles.loginInput}
-            ></TextInput>
+                onChangeText={(text) => setInputPW(text)}
+                value={inputPW}
+            />
             <Button
-                onPress={onClickLoginButton}
+                onPress={async () => await onClickLoginButton(inputID, inputPW)}
                 title="로그인"
-                accessibilityLabel="Learn more about this purple button"
+                disabled={!inputID||!inputPW}
             />
         </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    loginInput: {
-        backgroundColor: '#ddd',
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        width: "80%",
-        borderRadius: 20,
-        marginTop: 10,
-    },
-    loginButton: {
-        backgroundColor: 'green',
-        paddingVertical: 10,
-        paddingHorizontal: 100,
-        borderRadius: 20,
-        marginTop: 10,
-    }
-});
+async function onClickLoginButton(inputID, inputPW) {
+    console.log(inputID, inputPW)
+}
