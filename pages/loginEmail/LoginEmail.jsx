@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
-import { styles } from './LoginStartStyle'
+import { Text, TextInput, View, Button } from 'react-native';
+import { styles } from './LoginEmailStyle'
 
-export default function LoginStart() {
+export default function LoginEmail({ navigation }) {
     const [inputID, setInputID] = useState("");
     const [inputPW, setInputPW] = useState("");
 
