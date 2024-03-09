@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Button } from 'react-native';
 import { styles } from './TestHomeStyle'
+import {LoginEmailButton} from '../../features/login'
 
 export default function TestHome({ navigation }) {
     return (
@@ -24,6 +25,9 @@ export default function TestHome({ navigation }) {
                 title="signUpOAuth"
                 onPress={() => navigation.navigate('SignUpOAuth')}
             />
+            <LoginEmailButton
+            inputID={1} 
+            inputPW={3}/>
         </View>
     );
 }

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Button } from 'react-native';
 import { styles } from './LoginEmailStyle'
+import { LoginEmailButton } from '../../features/login'
 
 export default function LoginEmail({ navigation }) {
     const [inputID, setInputID] = useState("");
@@ -23,10 +24,9 @@ export default function LoginEmail({ navigation }) {
                 onChangeText={(text) => setInputPW(text)}
                 value={inputPW}
             />
-            <Button
-                onPress={async () => await onClickLoginButton(inputID, inputPW)}
-                title="로그인"
-                disabled={!inputID||!inputPW}
+            <LoginEmailButton
+                inputID={inputID}
+                inputPW={inputPW}
             />
         </View>
     );
