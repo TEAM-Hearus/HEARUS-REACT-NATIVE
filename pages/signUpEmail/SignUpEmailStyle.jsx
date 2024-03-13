@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    loginInput: {
+    input: {
         backgroundColor: '#ddd',
         paddingVertical: 10,
         paddingHorizontal: 10,

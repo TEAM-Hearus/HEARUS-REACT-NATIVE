@@ -1,6 +1,6 @@
 import { axios } from '../../../shared/axios'
 
-async function doLogin(email, password, isOAuth) {
+async function login(email, password, isOAuth) {
     const res = await axios.post('/auth/login/', { email, password, isOAuth })
     const isOk = res.data;
     return isOk;
@@ -22,4 +22,4 @@ async function signUp(userInfo) {
     return isOk;
 }
 
-export { doLogin, renewToken, signUp }
+export { login, renewToken, signUp }

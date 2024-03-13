@@ -1,1 +1,1 @@
-export { doLogin, renewToken, signUp } from './auth'
+export { login, renewToken, signUp } from './auth'
