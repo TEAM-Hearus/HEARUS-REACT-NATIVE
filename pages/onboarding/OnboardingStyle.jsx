@@ -9,17 +9,25 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     top: {
-        flex: 1,
-        justifyContent: 'center'
+        flex: 2,
+        justifyContent: 'center',
     },
     body: {
-        flex: 3,
+        flex: 6,
         justifyContent: 'center'
     },
     bottom: {
         flex: 1,
         justifyContent: 'center'
 
+    },
+    buttonContainer: {
+        flex: 0.5,
+        width:'100%',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        paddingHorizontal: 20, // 옆 여백 추가
+        paddingBottom: 20, // 아래 여백 추가
     },
     title: {
         fontFamily: "Bold",
@@ -43,17 +51,17 @@ export const styles = StyleSheet.create({
         // shadowOpacity: 0.15,
         borderRadius: 20,
     },
-    fakePrePage :{ 
-        position:'absolute',
+    fakePrePage: {
+        position: 'absolute',
         width: 400,
         height: 250,
         backgroundColor: '#EAEAEA',
-        left : 470,
-        top : 50,
+        left: 470,
+        top: 50,
         borderRadius: 20,
     },
-    fakePostPage :{
-        position:'absolute',
+    fakePostPage: {
+        position: 'absolute',
         width: 400,
         height: 250,
         backgroundColor: '#EAEAEA',
@@ -67,6 +75,11 @@ export const styles = StyleSheet.create({
     barScroll: {
         height: 6,
         backgroundColor: '#777777'
+    },
+    buttonNext: {
+    },
+    buttonText: {
+        color:'#415BFF',
     }
 
 });

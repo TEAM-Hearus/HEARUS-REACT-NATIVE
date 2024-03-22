@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Button, Animated } from 'react-native';
+import { Text, View, Button, Animated, Pressable } from 'react-native';
 import { Shadow } from 'react-native-shadow-2';
 import { styles } from './OnboardingStyle'
 import { pagesList } from './OnboardingPages'
@@ -8,6 +8,13 @@ import { pagesList } from './OnboardingPages'
 export default function Onboarding({ navigation }) {
     const [page, setPage] = useState(0)
     const maxPage = pagesList.length
+
+    const increasePage = () => {
+        if (page < maxPage - 1) setPage(page + 1)
+    }
+    // const decreasePage = () => {
+    //     if (page > 0) setPage(page - 1)
+    // }
 
     return (
         <View style={styles.container}>
@@ -25,9 +32,15 @@ export default function Onboarding({ navigation }) {
                     page={page}
                     maxPage={maxPage}
                 />
-                <NextButton
-                    onPress={() => setPage(page + 1)}
-                />
+            </View>
+            <View style={styles.buttonContainer}>
+                {page === maxPage - 1 ?
+                    <StartButton
+                        onPress={() => navigation.navigate('LoginOAuth')}
+                    /> :
+                    <NextButton
+                        onPress={increasePage}
+                    />}
             </View>
 
             <StatusBar style="auto" />
@@ -65,10 +78,25 @@ function PagenationBar({ page, maxPage }) {
 
 function NextButton({ onPress }) {
     return (
-        <Button
+        <Pressable
             onPress={onPress}
-            title="다음"
-        />
+            style={styles.buttonNext}
+        >
+            <Text
+                style={styles.buttonText}>다음{'>'}</Text>
+        </Pressable>
+    )
+}
+
+function StartButton({ onPress }) {
+    return (
+        <Pressable
+            onPress={onPress}
+            style={styles.buttonNext}
+        >
+            <Text
+                style={styles.buttonText}>시작하기{'>'}</Text>
+        </Pressable>
     )
 }
 
