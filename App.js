@@ -10,6 +10,11 @@ import LoginOAuth from './pages/loginOAuth/LoginOAuth';
 import SignUpEmail from './pages/signUpEmail/SignUpEmail';
 import SignUpOAuth from './pages/signUpOAuth/SignUpOAuth';
 import Onboarding from './pages/onboarding/Onboarding';
+import Home from './pages/home/Home';
+import KeywordList from './pages/keywordList/KeywordList';
+import DownloadedFiles from './pages/downloadedFiles/DownloadedFiles';
+import Schedule from './pages/schedule/Schedule';
+import SharedStorage from './pages/sharedStorage/SharedStorage';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +54,12 @@ export default function App() {
         <Stack.Screen name="SignUpEmail" component={SignUpEmail} />
         <Stack.Screen name="SignUpOAuth" component={SignUpOAuth} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="KeywordList" component={KeywordList} />
+        <Stack.Screen name="DownloadedFiles" component={DownloadedFiles} />
+        <Stack.Screen name="Schedule" component={Schedule} />
+        <Stack.Screen name="SharedStorage" component={SharedStorage} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

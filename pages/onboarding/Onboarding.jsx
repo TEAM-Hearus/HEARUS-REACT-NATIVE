@@ -36,7 +36,7 @@ export default function Onboarding({ navigation }) {
             <View style={styles.buttonContainer}>
                 {page === maxPage - 1 ?
                     <StartButton
-                        onPress={() => navigation.navigate('LoginOAuth')}
+                        onPress={() => navigation.navigate('Home')}
                     /> :
                     <NextButton
                         onPress={increasePage}
