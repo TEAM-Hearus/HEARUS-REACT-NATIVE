@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { screen, color } from '../../entities/style'
 
 export const styles = StyleSheet.create({
     container: {
@@ -14,6 +15,7 @@ export const styles = StyleSheet.create({
     },
     body: {
         flex: 6,
+        width: '100%',
         justifyContent: 'center'
     },
     bottom: {
@@ -22,8 +24,8 @@ export const styles = StyleSheet.create({
 
     },
     buttonContainer: {
-        flex: 0.5,
-        width:'100%',
+        flex: 1,
+        width: '100%',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
         paddingHorizontal: 20, // 옆 여백 추가
@@ -33,37 +35,37 @@ export const styles = StyleSheet.create({
         fontFamily: "Bold",
         fontStyle: 'normal',
         fontWeight: '600',
-        fontSize: 20,
+        fontSize: 40,
         textAlign: 'center',
         letterSpacing: -0.03,
         color: '#090909',
     },
     context: {
-        width: 400,
-        height: 250,
+        width: 817,
+        height: 618,
         backgroundColor: '#FFFFFF',
+        position: 'relative',
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 3,
         borderColor: '#C1C1C1',
-        // shadowOffset: { width: 0, height: 100 },
-        // shadowRadius: 4,
-        // shadowOpacity: 0.15,
         borderRadius: 20,
     },
     fakePrePage: {
         position: 'absolute',
-        width: 400,
-        height: 250,
+        width: 817,
+        height: 618,
         backgroundColor: '#EAEAEA',
-        left: 470,
-        top: 50,
+        right: -500,
+        bottom: 0,
         borderRadius: 20,
     },
     fakePostPage: {
         position: 'absolute',
-        width: 400,
-        height: 250,
+        width: 817,
+        height: 618,
+        left: -500,
+        bottom: 0,
         backgroundColor: '#EAEAEA',
         borderRadius: 20,
     },
@@ -79,7 +81,8 @@ export const styles = StyleSheet.create({
     buttonNext: {
     },
     buttonText: {
-        color:'#415BFF',
+        color: color.defaultBlue,
+        fontSize: 20,
     }
 
 });

@@ -1,0 +1,1 @@
+export { screen, font, color } from './style.js'

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, View, Button } from 'react-native';
 import { styles } from './TestHomeStyle'
-import { KeywordLight } from "../../entities/icon/menuIcon.jsx";
+import { MenuIcon } from "../../entities/icon";
 
 export default function TestHome({ navigation }) {
     return (
         <View style={styles.container}>
-            <KeywordLight/>
+            <MenuIcon.Download/>
             <Text>테스트 페이지, 모든 페이지 연결해두기</Text>
             <StatusBar style="auto" />
             <Button

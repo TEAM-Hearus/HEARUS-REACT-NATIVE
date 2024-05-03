@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Text, TextInput, View, Pressable } from 'react-native';
-import { styles } from './NavigationMenuStyle'
 import { useNavigationState } from '@react-navigation/native';
+import { styles } from './NavigationMenuStyle'
+import { MenuIcon } from '../../entities/icon'
 
 export default function NavigationMenu({ navigation }) {
     return (
@@ -11,26 +12,32 @@ export default function NavigationMenu({ navigation }) {
                 <MenuButton
                     pageId={'Home'}
                     pageName={'홈'}
+                    Icon={MenuIcon.MyBoard}
                     navigation={navigation}
                 />
                 <MenuButton
                     pageId={'KeywordList'}
-                    pageName={'키워드 목록'}
-                    navigation={navigation}
-                />
-                <MenuButton
-                    pageId={'DownloadedFiles'}
-                    pageName={'다운로드 파일'}
+                    pageName={'북마크'}
+                    Icon={MenuIcon.BookMark}
                     navigation={navigation}
                 />
                 <MenuButton
                     pageId={'Schedule'}
                     pageName={'시간표'}
+                    Icon={MenuIcon.TimeTable}
                     navigation={navigation}
                 />
                 <MenuButton
+                    pageId={'DownloadedFiles'}
+                    pageName={'다운로드 파일'}
+                    Icon={MenuIcon.Download}
+                    navigation={navigation}
+                />
+
+                <MenuButton
                     pageId={'SharedStorage'}
                     pageName={'공유함'}
+                    Icon={MenuIcon.Shared}
                     navigation={navigation}
                 />
             </View>
@@ -38,7 +45,7 @@ export default function NavigationMenu({ navigation }) {
     );
 }
 
-function MenuButton({ navigation, pageId, pageName }) {
+function MenuButton({ navigation, pageId, pageName, Icon }) {
     const state = useNavigationState(state => state);
     const currentPageName = state.routes[state.index].name
 
@@ -52,13 +59,13 @@ function MenuButton({ navigation, pageId, pageName }) {
             ]}
             onPress={() => navigation.navigate(pageId)}
         >
+            {Icon ? <Icon isAbled={isSelected}/> : ''}
             <Text
                 style={[
                     styles.menuButtonText,
-                    isSelected ? styles.menuButtonTextSelected : ''
+                    isSelected ? styles.menuButtonTextSelected : '',
                 ]}
             >{pageName}</Text>
-            {isSelected && <View style={styles.selectWing}></View>}
         </Pressable>)
 }
 

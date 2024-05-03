@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { color } from '../../entities/style'
 
 export const styles = StyleSheet.create({
     container: {
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
     profile: {
         width: 40,
         height: 40,
-        backgroundColor: '#FF6B3D',
+        backgroundColor: color.defaultOrange,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
@@ -26,33 +27,36 @@ export const styles = StyleSheet.create({
     },
     userEmail: {
         color: '#6F6F6F',
-
     },
     menuButton: {
         borderColor: '#BEBEBE',
         borderWidth: 1,
         borderRadius: 10,
-        width: 130,
-        height: 45,
+        width: 200,
+        height: 49,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'left',
+        flexDirection: 'row',
+        marginBottom: 20,
+        paddingLeft: 18
     },
-    menuButtonSelected:{
+    menuButtonSelected: {
         borderWidth: 0,
-        backgroundColor:'black'
+        backgroundColor: '#F1F1F1'
     },
-    menuButtonText :{
-        fontSize:10
+    menuButtonText: {
+        fontSize: 15,
+        marginLeft: 8
     },
-    menuButtonTextSelected:{
-        color:'white'
+    menuButtonTextSelected: {
+        // color: 'white'
     },
     selectWing: {
-        position:'absolute',
-        backgroundColor:'black',
+        position: 'absolute',
+        backgroundColor: 'black',
         width: 35,
         height: 45,
-        left:-25
+        left: -25
     }
 
 });

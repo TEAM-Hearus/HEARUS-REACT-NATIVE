@@ -4,6 +4,7 @@ import { Text, View, Button, Animated, Pressable } from 'react-native';
 import { Shadow } from 'react-native-shadow-2';
 import { styles } from './OnboardingStyle'
 import { pagesList } from './OnboardingPages'
+import { screen } from '../../entities/style'
 
 export default function Onboarding({ navigation }) {
     const [page, setPage] = useState(0)
@@ -101,16 +102,22 @@ function StartButton({ onPress }) {
 }
 
 function FakePostCard({ page }) {
-    const moveAnim = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+    const moveAnim = useRef(new Animated.ValueXY({
+        x: screen.halfWidth - 857 + 500,
+        y: -70
+    })).current;
 
     useEffect(() => {
         Animated.timing(moveAnim, {
-            toValue: { x: 0, y: 0 },
+            toValue: {
+                x: screen.halfWidth - 857 + 500,
+                y: -70
+            },
             duration: 0,
             useNativeDriver: true,
         }).start(() => {
             Animated.timing(moveAnim, {
-                toValue: { x: -470, y: 30 },
+                toValue: { x: 0, y: 0 },
                 duration: 300,
                 useNativeDriver: true,
             }).start()
@@ -134,11 +141,14 @@ function FakePreCard() {
 
 function ContentCard({ page }) {
     const PageComponent = pagesList[page].Content;
-    const moveAnim = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+    const moveAnim = useRef(new Animated.ValueXY({
+        x: screen.halfWidth - 857 + 500,
+        y: 70
+    })).current;
 
     useEffect(() => {
         Animated.timing(moveAnim, {
-            toValue: { x: 470, y: 30 },
+            toValue: { x: screen.halfWidth - 857 + 500, y: 70 },
             duration: 0,
             useNativeDriver: true,
         }).start(() => {
@@ -154,7 +164,9 @@ function ContentCard({ page }) {
         <Animated.View
             style={{
                 transform: [{ translateX: moveAnim.x },
-                { translateY: moveAnim.y }]
+                { translateY: moveAnim.y }],
+                alignItems: 'center',
+                justifyContent: 'center',
             }}>
             <Shadow
                 offset={[0, 2]}
