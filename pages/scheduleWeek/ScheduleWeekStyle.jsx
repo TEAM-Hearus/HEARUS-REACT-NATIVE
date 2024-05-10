@@ -49,14 +49,14 @@ export const styles = StyleSheet.create({
     switchWeekButton: {
         width: 78,
         height: 40,
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
         alignItems: 'center',
         justifyContent: 'center'
     },
     switchMonthButton: {
         width: 78,
         height: 40,
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
         alignItems: 'center',
         justifyContent: 'center'
     },

@@ -11,7 +11,7 @@ export default function NavigationMenu({ navigation }) {
             <View style={styles.menuList}>
                 <MenuButton
                     pageId={'Home'}
-                    pageName={'홈'}
+                    pageName={'내 보드'}
                     Icon={MenuIcon.MyBoard}
                     navigation={navigation}
                 />
@@ -29,7 +29,7 @@ export default function NavigationMenu({ navigation }) {
                 />
                 <MenuButton
                     pageId={'DownloadedFiles'}
-                    pageName={'다운로드 파일'}
+                    pageName={'다운로드'}
                     Icon={MenuIcon.Download}
                     navigation={navigation}
                 />
@@ -59,7 +59,7 @@ function MenuButton({ navigation, pageId, pageName, Icon }) {
             ]}
             onPress={() => navigation.navigate(pageId)}
         >
-            {Icon ? <Icon isAbled={isSelected}/> : ''}
+            {Icon ? <Icon isAbled={isSelected} /> : ''}
             <Text
                 style={[
                     styles.menuButtonText,
@@ -72,14 +72,17 @@ function MenuButton({ navigation, pageId, pageName, Icon }) {
 function UserView() {
     return (
         <View style={styles.userView}>
-            <View style={styles.profile}>
-                <Text style={{
-                    color: 'white',
-                    fontWeight: 'bold',
-                    fontSize: 25
-                }}>H</Text>
+            <View style={styles.userInfo}>
+                <View style={styles.profile}>
+                    <Text style={{
+                        color: 'white',
+                        fontWeight: 'bold',
+                        fontSize: 25
+                    }}>H</Text>
+                </View>
+                <Text style={styles.userEmail}>Hearus</Text>
             </View>
-            <Text style={styles.userEmail}>hearusteam@gmail.com</Text>
+            <MenuIcon.Setting />
         </View>
     )
 }

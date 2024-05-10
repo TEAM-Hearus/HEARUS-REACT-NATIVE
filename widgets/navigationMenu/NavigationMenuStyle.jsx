@@ -11,10 +11,18 @@ export const styles = StyleSheet.create({
     userView: {
         flex: 1,
         width: '100%',
-        padding: 20
+        flexDirection: 'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        padding: 20,
+    },
+    userInfo:{
+        flexDirection: 'row',
+        alignItems:'center'
     },
     menuList: {
-        flex: 4
+        flex: 9,
+        paddingTop:100
     },
     profile: {
         width: 40,
@@ -27,6 +35,7 @@ export const styles = StyleSheet.create({
     },
     userEmail: {
         color: '#6F6F6F',
+        marginLeft:16
     },
     menuButton: {
         borderColor: '#BEBEBE',
@@ -42,14 +51,14 @@ export const styles = StyleSheet.create({
     },
     menuButtonSelected: {
         borderWidth: 0,
-        backgroundColor: '#F1F1F1'
     },
     menuButtonText: {
+        color: '#9DA0A6',
         fontSize: 15,
         marginLeft: 8
     },
     menuButtonTextSelected: {
-        // color: 'white'
+        color: '#272C39'
     },
     selectWing: {
         position: 'absolute',

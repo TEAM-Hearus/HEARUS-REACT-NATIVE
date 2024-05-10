@@ -21,18 +21,28 @@ const boardData = [
     },
 ]
 
-function MyBoardContentItem({ title, datetime, isFavorite }) {
-    return (<View style={styles.myBoardContentItem}>
+function MyBoardContentItem({ title, datetime, isFavorite, itemMargin }) {
+    return (<View style={{
+        ...styles.myBoardContentItem,
+        marginRight: itemMargin
+    }}>
         <View style={styles.myBoardContentItemImg}></View>
-        <View>
-            <BoardIcon.Favorite/>
-            <Text>{title}</Text>
+        <View style={styles.myBoardContentItemTitle}>
+            <BoardIcon.BookMark />
+            <Text style={{marginLeft:5}}>{title}</Text>
         </View>
         <Text>{datetime}</Text>
     </View>)
 }
 
 export default function Home({ navigation }) {
+    const [parentWidth, setParentWidth] = useState(0);
+
+    const onLayout = event => {
+        const { width } = event.nativeEvent.layout;
+        setParentWidth(width);
+    }
+    const itemMargin = 40
 
     return (
         <View style={styles.container}>
@@ -44,13 +54,13 @@ export default function Home({ navigation }) {
             <View style={styles.body}>
                 <View style={styles.top}>
                     <View style={styles.calenderArea}>
-                        <MyBoardCalender/>
+                        <MyBoardCalender />
                     </View>
                     <View style={styles.buttonArea}>
                         <Pressable style={styles.recordStartButton}>
                             <Text>빠른 녹음 시작</Text>
                         </Pressable>
-                        <UploadButton/>
+                        <UploadButton />
                     </View>
                 </View>
                 <View style={styles.contentArea}>
@@ -81,19 +91,19 @@ export default function Home({ navigation }) {
                                 </Pressable>
                             </View>
                         </View>
-                        <View style={styles.myBoardContent}>
-                            
+                        <View style={styles.myBoardContent} onLayout={onLayout}>
                             <FlatList
-                            data={boardData}
-                            renderItem={({item})=>{
-                                return (<MyBoardContentItem
-                                title={item.title}
-                                datetime={item.datetime}
-                                isFavorite={item.isFavorite}
-                                ></MyBoardContentItem>)
-                            }}
-                            keyExtractor={(item, index) => index}
-                            numColumns={3}
+                                data={boardData}
+                                renderItem={({ item }) => {
+                                    return (<MyBoardContentItem
+                                        title={item.title}
+                                        datetime={item.datetime}
+                                        isFavorite={item.isFavorite}
+                                        itemMargin={itemMargin}
+                                    ></MyBoardContentItem>)
+                                }}
+                                keyExtractor={(item, index) => index}
+                                numColumns={3}
                             >
 
                             </FlatList>

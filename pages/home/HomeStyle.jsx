@@ -44,14 +44,6 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         marginLeft: 18
     },
-    addFileButton: {
-        backgroundColor: '#DDD',
-        width: 72,
-        height: 72,
-        borderRadius: 8,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     contentArea: {
         flex: 9,
         paddingTop: 24,
@@ -98,6 +90,8 @@ export const styles = StyleSheet.create({
     },
     myBoardContent: {
         flex: 9,
+        paddingHorizontal:47,
+        paddingTop:34,
     },
     myBoardContentItem: {
 
@@ -108,6 +102,10 @@ export const styles = StyleSheet.create({
         borderRadius : 12,
         borderColor : '#DDD',
         borderWidth : 1
+    },
+    myBoardContentItemTitle:{
+        flexDirection:'row',
+        marginTop:12
     },
     addRecordButton: {
         position: 'absolute',
