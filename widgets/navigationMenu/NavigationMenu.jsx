@@ -22,7 +22,7 @@ export default function NavigationMenu({ navigation }) {
                     navigation={navigation}
                 />
                 <MenuButton
-                    pageId={'Schedule'}
+                    pageId={'ScheduleWeek'}
                     pageName={'시간표'}
                     Icon={MenuIcon.TimeTable}
                     navigation={navigation}

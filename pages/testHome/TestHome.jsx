@@ -11,6 +11,10 @@ export default function TestHome({ navigation }) {
             <Text>테스트 페이지, 모든 페이지 연결해두기</Text>
             <StatusBar style="auto" />
             <Button
+                title="Test"
+                onPress={() => navigation.navigate('Test')}
+            />
+            <Button
                 title="LoginEmail"
                 onPress={() => navigation.navigate('LoginEmail')}
             />
@@ -43,8 +47,8 @@ export default function TestHome({ navigation }) {
                 onPress={() => navigation.navigate('DownloadedFiles')}
             />
             <Button
-                title="Schedule"
-                onPress={() => navigation.navigate('Schedule')}
+                title="ScheduleWeek"
+                onPress={() => navigation.navigate('ScheduleWeek')}
             />
             <Button
                 title="SharedStorage"

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Font from "expo-font";
 
+import Test from './pages/test/Test'
 import TestHome from './pages/testHome/TestHome';
 import LoginEmail from './pages/loginEmail/LoginEmail';
 import LoginOAuth from './pages/loginOAuth/LoginOAuth';
@@ -13,7 +14,7 @@ import Onboarding from './pages/onboarding/Onboarding';
 import Home from './pages/home/Home';
 import KeywordList from './pages/keywordList/KeywordList';
 import DownloadedFiles from './pages/downloadedFiles/DownloadedFiles';
-import Schedule from './pages/schedule/Schedule';
+import ScheduleWeek from './pages/scheduleWeek/ScheduleWeek';
 import SharedStorage from './pages/sharedStorage/SharedStorage';
 
 const Stack = createNativeStackNavigator();
@@ -49,6 +50,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
         initialRouteName="TestHome">
         <Stack.Screen name="TestHome" component={TestHome} />
+        <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="LoginEmail" component={LoginEmail} />
         <Stack.Screen name="LoginOAuth" component={LoginOAuth} />
         <Stack.Screen name="SignUpEmail" component={SignUpEmail} />
@@ -57,7 +59,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="KeywordList" component={KeywordList} />
         <Stack.Screen name="DownloadedFiles" component={DownloadedFiles} />
-        <Stack.Screen name="Schedule" component={Schedule} />
+        <Stack.Screen name="ScheduleWeek" component={ScheduleWeek} />
         <Stack.Screen name="SharedStorage" component={SharedStorage} />
 
       </Stack.Navigator>

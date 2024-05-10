@@ -1,11 +1,36 @@
 import React, { useState } from "react";
+import { Text, FlatList, View, Pressable } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, View, Pressable } from 'react-native';
 
 import { NavigationMenu } from '../../widgets/navigationMenu'
+import { MyBoardCalender } from '../../widgets/myBoardCalender'
+import { UploadButton } from "../../feature/uploadButton";
 import { styles } from './HomeStyle'
 import { BoardIcon } from '../../entities/icon'
 
+const boardData = [
+    {
+        title: 'Welcome Hearus',
+        datetime: '2024 . 03 . 05 오후 1 : 20',
+        isFavorite: false
+    },
+    {
+        title: 'Welcome Hearus',
+        datetime: '2024 . 03 . 05 오후 1 : 20',
+        isFavorite: false
+    },
+]
+
+function MyBoardContentItem({ title, datetime, isFavorite }) {
+    return (<View style={styles.myBoardContentItem}>
+        <View style={styles.myBoardContentItemImg}></View>
+        <View>
+            <BoardIcon.Favorite/>
+            <Text>{title}</Text>
+        </View>
+        <Text>{datetime}</Text>
+    </View>)
+}
 
 export default function Home({ navigation }) {
 
@@ -19,46 +44,13 @@ export default function Home({ navigation }) {
             <View style={styles.body}>
                 <View style={styles.top}>
                     <View style={styles.calenderArea}>
-                        <View style={styles.dayBox}>
-                            <Text>5월</Text>
-                            <BoardIcon.Calendar />
-                        </View>
-                        <View style={styles.dayBox}>
-                            <Text>일</Text>
-                            <Text>28</Text>
-                        </View>
-                        <View style={styles.dayBox}>
-                            <Text>월</Text>
-                            <Text>29</Text>
-                        </View>
-                        <View style={styles.dayBox}>
-                            <Text>화</Text>
-                            <Text>30</Text>
-                        </View>
-                        <View style={styles.dayBox}>
-                            <Text>수</Text>
-                            <Text>1</Text>
-                        </View>
-                        <View style={styles.dayBox}>
-                            <Text>목</Text>
-                            <Text>2</Text>
-                        </View>
-                        <View style={[styles.dayBox, styles.dayBoxActive]}>
-                            <Text>금</Text>
-                            <Text>3</Text>
-                        </View>
-                        <View style={styles.dayBox}>
-                            <Text>토</Text>
-                            <Text>4</Text>
-                        </View>
+                        <MyBoardCalender/>
                     </View>
                     <View style={styles.buttonArea}>
                         <Pressable style={styles.recordStartButton}>
                             <Text>빠른 녹음 시작</Text>
                         </Pressable>
-                        <Pressable style={styles.addFileButton}>
-                            <BoardIcon.Folder />
-                        </Pressable>
+                        <UploadButton/>
                     </View>
                 </View>
                 <View style={styles.contentArea}>
@@ -80,16 +72,32 @@ export default function Home({ navigation }) {
                             </View>
                             <View style={styles.myBoardSubMenu}>
                                 <Pressable style={styles.myBoardSubMenuItem}>
-                                    <BoardIcon.Menu/>
+                                    <BoardIcon.Menu />
                                     <Text>태그</Text>
                                 </Pressable>
                                 <Pressable style={styles.myBoardSubMenuItem}>
-                                    <BoardIcon.Favorite/>
+                                    <BoardIcon.Favorite />
                                     <Text>즐겨찾기</Text>
                                 </Pressable>
                             </View>
                         </View>
-                        <View style={styles.myBoardContent}></View>
+                        <View style={styles.myBoardContent}>
+                            
+                            <FlatList
+                            data={boardData}
+                            renderItem={({item})=>{
+                                return (<MyBoardContentItem
+                                title={item.title}
+                                datetime={item.datetime}
+                                isFavorite={item.isFavorite}
+                                ></MyBoardContentItem>)
+                            }}
+                            keyExtractor={(item, index) => index}
+                            numColumns={3}
+                            >
+
+                            </FlatList>
+                        </View>
                     </View>
                 </View>
                 <Pressable style={styles.addRecordButton}>

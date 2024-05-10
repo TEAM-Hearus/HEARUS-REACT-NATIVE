@@ -23,23 +23,11 @@ export const styles = StyleSheet.create({
     top: {
         flex: 1,
         flexDirection: 'row',
-
     },
     calenderArea: {
         flex: 3,
-
         flexDirection: 'row',
         alignItems: 'center',
-    },
-    dayBox: {
-        width: 55,
-        height: 75,
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-    },
-    dayBoxActive: {
-        backgroundColor: '#fff',
-        borderRadius: 6,
     },
     buttonArea: {
         flex: 1,
@@ -110,6 +98,16 @@ export const styles = StyleSheet.create({
     },
     myBoardContent: {
         flex: 9,
+    },
+    myBoardContentItem: {
+
+    },
+    myBoardContentItemImg: {
+        width :309,
+        height:324,
+        borderRadius : 12,
+        borderColor : '#DDD',
+        borderWidth : 1
     },
     addRecordButton: {
         position: 'absolute',
